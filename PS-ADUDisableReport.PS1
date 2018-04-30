@@ -6,7 +6,7 @@ $MinimumAccountAge = $(Get-Date).AddDays(-1)
 $TodaysDate = Get-Date
 
 #OU
-$OUSearchbase = "OU=Clients,DC=rogersdigital,DC=co,DC=uk"
+$OUSearchbase = ""
 
 $DomainUsers = Get-ADDomainController -Filter * | 
     ForEach-Object {
@@ -68,4 +68,4 @@ foreach ($Account in $Accounts) {
     }
         
 }
-$Output | Export-Csv c:\ADUReport.csv -NoClobber -NoTypeInformation -Force
+$Output | Export-Csv 'c:\ps\ADUReport.csv' -NoClobber -NoTypeInformation -Force
